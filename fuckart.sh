@@ -13,8 +13,10 @@ while true; do
     esac
 done
 printf '\e[8;30;150t'
+echo ""
+
 fi
-echo "\
+echo "
 FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!
 FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!         FUCK!FUCK!      FUCK!FUCK!
 FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!        FUCK!FUCK!       FUCK!FUCK!
@@ -41,3 +43,17 @@ FUCK!FUCK!                         FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!
 FUCK!FUCK!                         FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!        FUCK!FUCK!       FUCK!FUCK!
 FUCK!FUCK!                         FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!         FUCK!FUCK!      FUCK!FUCK!
 FUCK!FUCK!                         FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!"
+
+if [ $lines -lt 30 ] || [ $columns -lt 150 ]
+then
+echo ""
+while true; do
+    read -p "Do you wish to return terminal to initial size?(y/n)
+" yn
+    case $yn in
+        [Yy]* ) clear; resize -s $lines $columns 1>/dev/null; clear; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+	esac
+done
+fi
