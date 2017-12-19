@@ -17,6 +17,36 @@ echo ""
 
 fi
 
+if [[  $# -ge 1 && $1 = "-n" || $2 = "-n" ]]
+	then
+echo "
+FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!
+FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!         FUCK!FUCK!      FUCK!FUCK!
+FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!        FUCK!FUCK!       FUCK!FUCK!
+FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!       FUCK!FUCK!        FUCK!FUCK!
+FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!                         FUCK!FUCK!      FUCK!FUCK!         FUCK!FUCK!
+FUCK!FUCK!                         FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!                         FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!
+FUCK!FUCK!                         FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!                         FUCK!FUCK!    FUCK!FUCK!           FUCK!FUCK!
+FUCK!FUCK!                         FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!                         FUCK!FUCK!   FUCK!FUCK!            FUCK!FUCK!
+FUCK!FUCK!                         FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!                         FUCK!FUCK!  FUCK!FUCK!             FUCK!FUCK!
+FUCK!FUCK!                         FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!                         FUCK!FUCK! FUCK!FUCK!              FUCK!FUCK!
+FUCK!FUCK!                         FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!                         FUCK!FUCK!FUCK!FUCK!               FUCK!FUCK!
+FUCK!FUCK!FUCK!FUCK!               FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!                         FUCK!FUCK!UCK!FUCK!                FUCK!FUCK!
+FUCK!FUCK!FUCK!FUCK!               FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!                         FUCK!FUCK!UCK!FUCK!                FUCK!FUCK!
+FUCK!FUCK!FUCK!FUCK!               FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!                         FUCK!FUCK!CK!FUCK!                 FUCK!FUCK!
+FUCK!FUCK!FUCK!FUCK!               FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!                         FUCK!FUCK!UCK!FUCK!                FUCK!FUCK!
+FUCK!FUCK!FUCK!FUCK!               FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!                         FUCK!FUCK!FUCK!FUCK!               FUCK!FUCK!
+FUCK!FUCK!                         FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!                         FUCK!FUCK! FUCK!FUCK!              FUCK!FUCK!
+FUCK!FUCK!                         FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!                         FUCK!FUCK!  FUCK!FUCK!             FUCK!FUCK!
+FUCK!FUCK!                         FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!                         FUCK!FUCK!   FUCK!FUCK!            FUCK!FUCK!
+FUCK!FUCK!                         FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!                         FUCK!FUCK!    FUCK!FUCK!           FUCK!FUCK!
+FUCK!FUCK!                         FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!                         FUCK!FUCK!     FUCK!FUCK!
+FUCK!FUCK!                         FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!                         FUCK!FUCK!      FUCK!FUCK!         
+FUCK!FUCK!                         FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!       FUCK!FUCK!        FUCK!FUCK!
+FUCK!FUCK!                         FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!        FUCK!FUCK!       FUCK!FUCK!
+FUCK!FUCK!                         FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!         FUCK!FUCK!      FUCK!FUCK!
+FUCK!FUCK!                         FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!"
+	else
 SLEEPTIME=0.02
 if [[ $# -ge 1 && $(echo "$1 > 0" | bc ) ]]
 then
@@ -1639,9 +1669,11 @@ sleep $SLEEPTIME
 sleep $SLEEPTIME 
 echo ""
 
+	fi
+
+echo ""
 if [ $lines -lt 30 ] || [ $columns -lt 150 ]
 then
-echo ""
 while true; do
     read -p "Do you wish to return terminal to initial size?(y/n)
 " yn
