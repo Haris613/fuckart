@@ -48,7 +48,7 @@ FUCK!FUCK!                         FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!
 FUCK!FUCK!                         FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!"
 	else
 SLEEPTIME=0.02
-if [[ $# -ge 1 && $(echo "$1 > 0" | bc ) ]]
+if [[ $# -ge 1 && $1 -gt 0 ]]
 then
 	SLEEPTIME=$(echo "scale=20; $SLEEPTIME/$1" | bc)
 fi
