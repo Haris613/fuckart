@@ -3,6 +3,8 @@ lines=$(tput lines)
 columns=$(tput cols)
 if [ $lines -lt 30 ] || [ $columns -lt 150 ]
 then
+if [[  $# -eq 0 || ($1 != "-n" && $2 != "-n") ]]
+	then
 while true; do
     read -p "This will now change the size of terminal. Do you wish to continue?(y/n)
 " yn
@@ -12,12 +14,13 @@ while true; do
         * ) echo "Please answer yes or no.";;
     esac
 done
+fi
 printf '\e[8;30;150t'
 echo ""
 
 fi
-
-if [[  $# -ge 1 && $1 = "-n" || $2 = "-n" ]]
+#todo solve the attributes in a better way...
+if [[  $# -ge 1 && $1 = "-s" || $2 = "-s" ]]
 	then
 echo "
 FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!
@@ -1672,7 +1675,7 @@ echo ""
 	fi
 
 echo ""
-if [ $lines -lt 30 ] || [ $columns -lt 150 ]
+if [ $lines -lt 30 ] || [ $columns -lt 150 ] && [[ $# -eq 0 || ($1 != "-n" && $2 != "-n") ]]
 then
 while true; do
     read -p "Do you wish to return terminal to initial size?(y/n)
