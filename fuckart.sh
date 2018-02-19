@@ -1,9 +1,32 @@
 #!/bin/bash
+
+SKIP=false;
+ASK=true
+SPEED=1
+
+for i in "$@"
+do
+case $i in
+    -s|--skip)
+    SKIP=true
+    ;;
+    -d|--dont-ask)
+    ASK=false
+    ;;
+    [0-9]*)
+	SPEED=$i
+    ;;
+    *)
+            # unknown option
+    ;;
+esac
+done
+
 lines=$(tput lines)
 columns=$(tput cols)
 if [ $lines -lt 30 ] || [ $columns -lt 150 ]
 then
-if [[  $# -eq 0 || ($1 != "-n" && $2 != "-n") ]]
+if [ $# -eq 0 ] || [ "$ask" = true ]
 	then
 while true; do
     read -p "This will now change the size of terminal. Do you wish to continue?(y/n)
@@ -19,8 +42,8 @@ printf '\e[8;30;150t'
 echo ""
 
 fi
-#todo solve the attributes in a better way...
-if [[  $# -ge 1 && $1 = "-s" || $2 = "-s" ]]
+
+if [ "$SKIP" = true ]
 	then
 echo "
 FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!
@@ -50,11 +73,9 @@ FUCK!FUCK!                         FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!
 FUCK!FUCK!                         FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!         FUCK!FUCK!      FUCK!FUCK!
 FUCK!FUCK!                         FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!FUCK!FUCK!FUCK!FUCK!     FUCK!FUCK!          FUCK!FUCK!     FUCK!FUCK!"
 	else
-SLEEPTIME=0.02
-if [[ $# -ge 1 && $1 -gt 0 ]]
-then
-	SLEEPTIME=$(echo "scale=20; $SLEEPTIME/$1" | bc)
-fi
+
+SLEEPTIME=$(echo "scale=20; 0.02/$SPEED" | bc)
+
 echo ""
 echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "     "; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "     "; sleep $SLEEPTIME; echo -n "     "; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "     "; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "     "; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "     "; sleep $SLEEPTIME; echo -n "     "; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "     "; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo ""
 echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "     "; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "     "; sleep $SLEEPTIME; echo -n "     "; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "     "; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "     "; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "     "; sleep $SLEEPTIME; echo -n "    "; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "     "; sleep $SLEEPTIME; echo -n " "; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo ""
@@ -85,7 +106,7 @@ echo -n "FUCK!"; sleep $SLEEPTIME; echo -n "FUCK!"; sleep $SLEEPTIME; echo -n " 
 	fi
 
 echo ""
-if [ $lines -lt 30 ] || [ $columns -lt 150 ] && [[ $# -eq 0 || ($1 != "-n" && $2 != "-n") ]]
+if [ $lines -lt 30 ] || [ $columns -lt 150 ] && [ "$ASK" = true ]
 then
 while true; do
     read -p "Do you wish to return terminal to initial size?(y/n)
