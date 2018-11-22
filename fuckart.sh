@@ -33,7 +33,7 @@ while true; do
 " yn
     case $yn in
         [Yy]* ) break;;
-        [Nn]* ) echo "OK, have this at least."; toilet -f mono12 --metal "FUCK!" 2>/dev/null ;exit;;
+        [Nn]* ) echo "OK, have this at least."; echo "FUCK!";exit;;
         * ) echo "Please answer yes or no.";;
     esac
 done
